@@ -31,7 +31,6 @@ The major third-party open source frameworks are:
  - [Glide](https://github.com/bumptech/glide)
  - [Ocpsoft - Pretty Time](https://github.com/ocpsoft/prettytime)
  - [Multiple Status View](https://github.com/qyxxjd/MultipleStatusView)
- - [Flexbox-layout](https://github.com/google/flexbox-layout)
  - [Easing Animations- Daimajia](https://github.com/daimajia/AnimationEasingFunctions)
  
  ## Update log
