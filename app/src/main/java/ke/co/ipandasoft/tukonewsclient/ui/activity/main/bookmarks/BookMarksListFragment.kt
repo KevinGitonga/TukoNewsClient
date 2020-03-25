@@ -91,7 +91,7 @@ class BookMarksListFragment :BaseFragment(),OnItemClickListener,OnNewsLikedListe
     }
 
     override fun onNewsLiked(obj: Any?, position: Int) {
-        Toast.makeText(this.context,"NEWS REMOVED",Toast.LENGTH_SHORT).show()
+        Toast.makeText(this.context,"BOOKMARK REMOVED",Toast.LENGTH_SHORT).show()
         viewModel.removeLikedPost(obj as Post)
         newsAdapter.remove(obj)
         newsAdapter.notifyItemRemoved(position)

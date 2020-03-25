@@ -179,7 +179,7 @@ class HomeListFragment :BaseFragment(), PaginationAdapterCallback,OnItemClickLis
     override fun onNewsLiked(obj: Any?, position: Int) {
         viewModel.saveLikedNews(obj as Post)
         viewModel.saveUpdateNewsStatus(true,obj)
-        Toast.makeText(this.context,"ITEM LiKED"+Gson().toJson(obj),Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this.context,"ITEM LiKED"+Gson().toJson(obj),Toast.LENGTH_SHORT).show()
     }
 
 
