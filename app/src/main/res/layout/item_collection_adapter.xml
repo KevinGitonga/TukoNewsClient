@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/press_effect_white_bg"
+        android:paddingStart="@dimen/global_margin"
+        android:paddingTop="14dp"
+        android:paddingEnd="2dp"
+        android:paddingBottom="14dp">
+
+        <ke.co.ipandasoft.tukonewsclient.ui.activity.views.RoundCornerImageView
+            android:id="@+id/img_cover"
+            android:layout_width="100dp"
+            android:layout_height="84dp"
+            android:layout_marginEnd="14dp"
+            android:scaleType="centerCrop"
+            android:visibility="visible"
+            app:borderColor="@color/color_gray"
+            app:borderWidth="0.5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:radius="8dp" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:fontFamily="@font/nunito_sans_extra_bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="14dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:text="@string/app_name"
+            app:layout_constraintEnd_toStartOf="@id/img_cover"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="kills killed killer will be killed" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/nunito_sans_black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintVertical_bias="1"
+            android:text="18/10/29 02:44"
+             />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

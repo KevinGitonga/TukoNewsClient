@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="padding_tab_layout_bottom">51dp</dimen>
+
+
+    <dimen name="padding_common">10dp</dimen>
+    <dimen name="padding_common_h">15dp</dimen>
+    <dimen name="padding_common_v">10dp</dimen>
+    <dimen name="padding_common_d">5dp</dimen>
+
+    <dimen name="textSize_small_10">10sp</dimen>
+    <dimen name="textSize_small">12sp</dimen>
+    <dimen name="textSize_content">14sp</dimen>
+    <dimen name="textSize_titleSmall">16sp</dimen>
+    <dimen name="textSize_title">18sp</dimen>
+
+    <dimen name="division_line">0.5dp</dimen>
+    <dimen name="medium">16sp</dimen>
+    <dimen name="news_padding_start">4dp</dimen>
+    <dimen name="news_padding_top_size">6dp</dimen>
+    <dimen name="card_margin_horizontal">2dp</dimen>
+    <dimen name="padding_item">12dp</dimen>
+    <dimen name="minima_image_size">100dp</dimen>
+    <dimen name="margin_bottom_rv">16dp</dimen>
+    <dimen name="button_retry_margin">24dp</dimen>
+    <dimen name="button_image_half">8dp</dimen>
+</resources>

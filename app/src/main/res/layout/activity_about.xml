@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentScrim="#fff"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:titleEnabled="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.5">
+
+                <ke.co.ipandasoft.tukonewsclient.ui.activity.views.RoundCornerImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="38dp"
+                    android:src="@mipmap/ic_launcher" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="17dp"
+                    android:letterSpacing="0.04"
+                    android:text="@string/app_name"
+                    android:fontFamily="@font/nunito_sans_bold"
+                    android:textColor="@color/color_black"
+                    android:textSize="18sp"
+                    tools:targetApi="lollipop" />
+
+                <TextView
+                    android:id="@+id/tv_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="16dp"
+                    android:letterSpacing="0.04"
+                    android:textColor="@color/color_black"
+                    android:fontFamily="@font/nunito_sans_black"
+                    android:textSize="16sp"
+                    tools:targetApi="lollipop"
+                    tools:text="v1.0" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_black"
+                app:contentInsetStartWithNavigation="0dp"
+                app:layout_collapseMode="pin"
+                app:navigationIcon="@drawable/ic_back_white"
+                app:title="About App"
+                app:titleTextColor="@color/white" />
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_gray"
+                android:paddingStart="@dimen/global_margin"
+                android:paddingTop="11dp"
+                android:paddingEnd="@dimen/global_margin"
+                android:paddingBottom="11dp"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:text="@string/about_app"
+                android:textColor="@color/color_black"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/global_margin"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="@dimen/global_margin"
+                android:layout_marginBottom="10dp"
+                android:letterSpacing="0.04"
+                android:textIsSelectable="true"
+                android:lineSpacingExtra="5dp"
+                android:fontFamily="@font/nunito_sans_regular"
+                android:text="@string/brief_about_app"
+                android:textColor="@color/color_black"
+                android:textSize="14sp"
+                tools:targetApi="lollipop" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_gray"
+                android:paddingStart="@dimen/global_margin"
+                android:paddingTop="11dp"
+                android:paddingEnd="@dimen/global_margin"
+                android:paddingBottom="11dp"
+                android:text="@string/external_libs"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:textColor="@color/color_black"
+                android:textSize="15sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ryc_sources"
+                android:background="@color/white"
+                android:nestedScrollingEnabled="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:targetApi="lollipop" />
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

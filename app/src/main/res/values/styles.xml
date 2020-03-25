@@ -1,0 +1,136 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+        <!-- Base application theme. -->
+        <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+            <!-- Customize your theme here. -->
+            <item name="colorPrimary">@color/colorPrimary</item>
+            <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+            <item name="colorAccent">@color/colorAccent</item>
+        </style>
+
+
+        <style name="ProgressBarRed">
+            <item name="progress_max">100</item>
+            <item name="progress_current">0</item>
+            <item name="progress_unreached_color">@color/color_blue_dark</item>
+            <item name="progress_reached_color">@color/colorAccent</item>
+            <item name="progress_text_size">0sp</item>
+            <item name="progress_reached_bar_height">1.7dp</item>
+            <item name="progress_unreached_bar_height">1.7dp</item>
+        </style>
+
+    <style name="item_me" parent="AppTheme">
+        <item name="android:textColor">@color/color_black</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:letterSpacing" tools:targetApi="lollipop">0.04</item>
+        <item name="android:layout_marginStart">53dp</item>
+        <item name="android:layout_marginEnd">53dp</item>
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:drawablePadding">18dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/press_effect_white_bg</item>
+    </style>
+
+    <style name="item_setting" parent="AppTheme">
+        <item name="android:textColor">@color/color_black</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingTop">18dp</item>
+        <item name="android:paddingStart">@dimen/global_margin</item>
+    </style>
+
+        <style name="AppTheme.NoActionBar">
+            <item name="windowActionBar">false</item>
+            <item name="windowNoTitle">true</item>
+        </style>
+
+        <style name="AppTheme.NoActionBar.FullScreen">
+            <item name="android:windowFullscreen">true</item>
+        </style>
+
+
+        <style name="AppTheme.NoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+        <style name="AppTheme.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+        <style name="AppTheme.Label">
+            <item name="android:layout_width">wrap_content</item>
+            <item name="android:layout_height">wrap_content</item>
+            <item name="android:gravity">center_vertical</item>
+            <item name="android:singleLine">true</item>
+            <item name="android:textSize">@dimen/textSize_content</item>
+            <item name="android:textColor">@color/color_gray</item>
+        </style>
+
+
+        <style name="AppTheme.Label.Title">
+            <item name="android:textColor">@color/color_black</item>
+            <item name="android:textSize">@dimen/textSize_titleSmall</item>
+        </style>
+
+        <style name="AppTheme.Label.Description">
+            <item name="android:gravity">top</item>
+            <item name="android:lineSpacingExtra">5dp</item>
+            <item name="android:ellipsize">end</item>
+            <item name="android:textSize">@dimen/textSize_content</item>
+            <item name="android:singleLine">false</item>
+        </style>
+
+        <style name="AppTheme.Label.Layout">
+            <item name="android:paddingTop">@dimen/padding_common_v</item>
+            <item name="android:paddingBottom">@dimen/padding_common_v</item>
+            <item name="android:paddingLeft">@dimen/padding_common_h</item>
+            <item name="android:paddingRight">@dimen/padding_common_h</item>
+        </style>
+
+
+        <style name="AppTheme.DiverLine">
+            <item name="android:layout_width">match_parent</item>
+            <item name="android:layout_height">0.5dp</item>
+            <item name="android:dividerHeight">0.5dp</item>
+            <item name="android:divider">@color/color_division_line</item>
+            <item name="android:background">@color/color_division_line</item>
+        </style>
+
+        <style name="AppTheme.Toolbar" parent="Widget.AppCompat.ActionBar">
+            <item name="android:layout_width">match_parent</item>
+            <item name="android:layout_height">?attr/actionBarSize</item>
+            <item name="android:background">?attr/colorPrimary</item>
+            <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+
+        </style>
+
+    <style name="TextStyle16" parent="@style/TextStyleBase">
+        <item name="android:textSize">@dimen/post_text_size</item>
+    </style>
+
+    <style name="TextStyleGrey" parent="@style/TextStyle16">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">@color/dark_grey</item>
+    </style>
+
+    <style name="TextStyleBase" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/title_color</item>
+        <item name="android:textColorLink">@color/link_color</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TextStyleViewsSmallCount" parent="@style/TextStyleViewsCount">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:drawableLeft">@drawable/ic_views</item>
+    </style>
+
+    <style name="TextStyleViewsCount" parent="@style/TextStyleGrey">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:drawablePadding">6.0dip</item>
+    </style>
+
+
+    <color name="title_color">#ff222222</color>
+    <color name="link_color">#ff229570</color>
+    <color name="dark_grey">#FFCFCFCF</color>
+    <dimen name="post_text_size">16sp</dimen>
+    <dimen name="global_margin">10dp</dimen>
+</resources>

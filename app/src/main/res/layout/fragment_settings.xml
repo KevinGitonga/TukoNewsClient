@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:ignore="ContentDescription">
+
+    <include
+        android:id="@+id/toolbar_settings"
+        layout="@layout/toolbar_layout"
+        app:layout_constraintStart_toStartOf="parent"></include>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_gray" />
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="41dp"
+        android:layout_marginBottom="40dp"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/tv_manage_categories"
+        style="@style/item_me"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/nunito_sans_bold"
+        android:drawableStart="@drawable/ic_collection"
+        android:text="@string/manageCategories" />
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginEnd="53dp"
+        android:background="@color/color_black" />
+
+    <TextView
+        android:id="@+id/tv_clear"
+        style="@style/item_me"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_sans_bold"
+        android:drawableStart="@drawable/ic_clear"
+        android:text="@string/clearCache" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginEnd="53dp"
+        android:background="@color/color_black" />
+
+    <TextView
+        android:id="@+id/tv_setting"
+        style="@style/item_me"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_sans_bold"
+        android:drawableStart="@drawable/ic_setting"
+        android:text="@string/notification" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginEnd="53dp"
+        android:background="@color/color_black" />
+
+    <TextView
+        android:id="@+id/tv_about"
+        style="@style/item_me"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_sans_bold"
+        android:drawableStart="@drawable/ic_about"
+        android:text="@string/about" />
+</LinearLayout>

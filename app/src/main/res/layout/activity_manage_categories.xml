@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray"
+    android:orientation="vertical"
+    >
+
+    <ke.co.ipandasoft.tukonewsclient.ui.activity.views.SToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:background="@color/color_black"
+        app:contentHeight="55dp"
+        app:navIcon="@drawable/ic_back_white"
+        app:title="Manage Categories"
+        app:titleColor="@color/white"
+        app:titleGravity="LEFT"
+        app:titleStyle="normal" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ryc_sort"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
