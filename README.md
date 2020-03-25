@@ -13,5 +13,5 @@ Android development trends and improve my skills if you have any questions and s
 contact[![](https://img.shields.io/badge/Gmail:-kevinjones4199@gmail.com-blue.svg)]()
 
 ### App Preview
-<img src="https://i.imgur.com/k3YmkD7.gif" width = "30%"> <img src="https://i.imgur.com/wHtqV5o.gif" width = "30%">
-<img src="https://i.imgur.com/p5uIjLF.gif" width = "30%">
+<img src="https://i.imgur.com/gCGGtNg.gif" width = "30%"> <img src="https://i.imgur.com/k3YmkD7.gif" width = "30%"> 
+<img src="https://i.imgur.com/wHtqV5o.gif" width = "30%"> <img src="https://i.imgur.com/p5uIjLF.gif" width = "30%">
