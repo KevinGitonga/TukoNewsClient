@@ -14,7 +14,7 @@ contact[![](https://img.shields.io/badge/Gmail:-kevinjones4199@gmail.com-blue.sv
 
 ## App screenshots
 
-<img src="https://i.imgur.com/gCGGtNg.gifv" style="width: 30%;"> style="width: 30%;">
+<img src="https://i.imgur.com/gCGGtNg.gif" style="width: 30%;"> style="width: 30%;">
 
 
 
