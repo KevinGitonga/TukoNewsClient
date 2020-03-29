@@ -163,4 +163,9 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
+    //ADBLOCKER---ENGINE
+    implementation 'org.adblockplus:adblock-android:3.0'
+    implementation 'org.adblockplus:adblock-android-webview:3.0'
+    implementation 'org.adblockplus:adblock-android-settings:3.0'
+
 }

@@ -33,7 +33,7 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
-        <ke.co.ipandasoft.tukonewsclient.ui.activity.views.NestedScrollWebView
+        <org.adblockplus.libadblockplus.android.webview.AdblockWebView
             android:id="@+id/web_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

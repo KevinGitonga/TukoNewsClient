@@ -6,6 +6,9 @@ import ke.co.ipandasoft.tukonewsclient.di.networkModule
 import ke.co.ipandasoft.tukonewsclient.di.persistenceModule
 import ke.co.ipandasoft.tukonewsclient.di.repositoryModule
 import ke.co.ipandasoft.tukonewsclient.di.viewModelModule
+import org.adblockplus.libadblockplus.android.AdblockEngine
+import org.adblockplus.libadblockplus.android.SingleInstanceEngineProvider
+import org.adblockplus.libadblockplus.android.settings.AdblockHelper
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import timber.log.Timber
@@ -26,10 +29,26 @@ class TukoNewsApp : MultiDexApplication(){
         super.onCreate()
         context = applicationContext
         initLogger()
+        initAdBlocker()
         initKoinDi()
 
-
     }
+
+    private fun initAdBlocker() {
+
+        if (!AdblockHelper.get().isInit())
+        {
+            // init Adblock
+            val basePath = getDir(AdblockEngine.BASE_PATH_DIRECTORY, Context.MODE_PRIVATE).getAbsolutePath()
+
+            AdblockHelper
+                .get()
+                .init(this, basePath, true, AdblockHelper.PREFERENCE_NAME)
+                .addEngineCreatedListener(engineCreatedListener)
+                .addEngineDisposedListener(engineDisposedListener)
+        }
+    }
+
 
     open fun initKoinDi() {
         startKoin {
@@ -49,5 +68,20 @@ class TukoNewsApp : MultiDexApplication(){
     }
 
 
+    object engineCreatedListener : SingleInstanceEngineProvider.EngineCreatedListener {
+        override fun onAdblockEngineCreated(engine: AdblockEngine?) {
+            Timber.e("ENGINE INITIATED")
+        }
+
+    }
+
+    object engineDisposedListener : SingleInstanceEngineProvider.EngineDisposedListener {
+        override fun onAdblockEngineDisposed() {
+            Timber.e("ENGINE DISPOSED")
+        }
+
+    }
 
 }
+
+

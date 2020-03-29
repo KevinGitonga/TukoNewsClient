@@ -12,6 +12,8 @@ import ke.co.ipandasoft.tukonewsclient.R
 import ke.co.ipandasoft.tukonewsclient.ui.base.BaseActivity
 import ke.co.ipandasoft.tukonewsclient.utils.isOpenApp
 import kotlinx.android.synthetic.main.browser_activity.*
+import org.adblockplus.libadblockplus.android.AdblockEngine
+import org.adblockplus.libadblockplus.android.settings.AdblockHelper
 import timber.log.Timber
 
 class BrowserActivity :BaseActivity(){
@@ -31,7 +33,7 @@ class BrowserActivity :BaseActivity(){
     }
 
     override fun initData() {
-
+        initAdBlocker()
         val isArticle=intent.getBooleanExtra("isArticle",false)
 
         Timber.e("NEWS TITLE  $isArticle")
@@ -40,6 +42,10 @@ class BrowserActivity :BaseActivity(){
             toolbar.title=title
 
         }
+    }
+
+    private fun initAdBlocker() {
+
     }
 
     override fun initView() {
@@ -60,6 +66,9 @@ class BrowserActivity :BaseActivity(){
             removeJavascriptInterface("searchBoxJavaBridge_")
             removeJavascriptInterface("accessibilityTraversal")
             removeJavascriptInterface("accessibility")
+
+            // use shared filters data (not to increase memory consumption)
+            setProvider(AdblockHelper.get().provider)
         }
 
 

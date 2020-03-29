@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.gson.Gson
 import ke.co.ipandasoft.tukonewsclient.R
 import ke.co.ipandasoft.tukonewsclient.data.models.NewsCategory
@@ -24,7 +25,8 @@ import org.koin.android.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
 
-class HomeListFragment :BaseFragment(), PaginationAdapterCallback,OnItemClickListener,OnNewsLikedListener {
+class HomeListFragment :BaseFragment(), PaginationAdapterCallback,OnItemClickListener,OnNewsLikedListener,
+    SwipeRefreshLayout.OnRefreshListener {
 
     private var newsCategory:NewsCategory?=null
     private val viewModel by viewModel<HomeListViewModel>()
@@ -32,6 +34,7 @@ class HomeListFragment :BaseFragment(), PaginationAdapterCallback,OnItemClickLis
 
     private lateinit var newsAdapter: HomeNewsAdapter
     internal lateinit var linearLayoutManager: LinearLayoutManager
+    private var isRefresh=false
 
     private var isLoading = false
     private var isLastPage = false
@@ -60,6 +63,7 @@ class HomeListFragment :BaseFragment(), PaginationAdapterCallback,OnItemClickLis
         newsAdapter= HomeNewsAdapter(this.context!!)
         newsAdapter.setOnItemClickListener(this)
         newsAdapter.setOnNewsLikedListener(this)
+        mRefreshLayout.setOnRefreshListener(this)
 
         linearLayoutManager = LinearLayoutManager(this.context!!, LinearLayoutManager.VERTICAL, false)
         mRecyclerView.layoutManager=linearLayoutManager
@@ -133,7 +137,19 @@ class HomeListFragment :BaseFragment(), PaginationAdapterCallback,OnItemClickLis
 
                 Timber.e("HANDLING DATA"+it.data.posts!!.size)
 
+
+
                 if (currentPage==1){
+
+                    if (isRefresh){
+                        isRefresh=false
+                        mRefreshLayout.isRefreshing=false
+                        multipleStatusView.showContent()
+                        newsAdapter.clear()
+                        newsAdapter.notifyDataSetChanged()
+                        newsAdapter.addAll(it.data.posts as List<Post>)
+                    }
+
                     newsAdapter.addAll(it.data.posts as List<Post>)
                     multipleStatusView.showContent()
 
@@ -180,6 +196,13 @@ class HomeListFragment :BaseFragment(), PaginationAdapterCallback,OnItemClickLis
         viewModel.saveLikedNews(obj as Post)
         viewModel.saveUpdateNewsStatus(true,obj)
         //Toast.makeText(this.context,"ITEM LiKED"+Gson().toJson(obj),Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onRefresh() {
+        isRefresh=true
+        mRefreshLayout.isRefreshing=true
+        currentPage=1
+        initNewsLoad(currentPage)
     }
 
 
