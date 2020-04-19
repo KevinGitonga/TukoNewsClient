@@ -1,14 +1,20 @@
 package ke.co.ipandasoft.tukonewsclient.ui.activity.main
 
 import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.Observer
+import androidx.work.*
+import com.google.gson.Gson
 import ke.co.ipandasoft.tukonewsclient.R
 import ke.co.ipandasoft.tukonewsclient.ui.activity.main.bookmarks.BookMarksFragment
 import ke.co.ipandasoft.tukonewsclient.ui.activity.main.bookmarks.BookMarksListFragment
 import ke.co.ipandasoft.tukonewsclient.ui.activity.main.homenews.HomeFragment
 import ke.co.ipandasoft.tukonewsclient.ui.activity.main.settings.SettingsFragment
+import ke.co.ipandasoft.tukonewsclient.ui.activity.notifications.NotificationRequestWorker
 import ke.co.ipandasoft.tukonewsclient.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.home_activity.*
 import org.jetbrains.anko.longToast
+import timber.log.Timber
+import java.util.concurrent.TimeUnit
 
 class HomeActivity :BaseActivity(){
 
@@ -35,7 +41,36 @@ class HomeActivity :BaseActivity(){
     override fun start() {
         initBottomNav()
         switchFragment(0)
+        setupWorker()
     }
+
+    private fun setupWorker() {
+        /*Setting up different constraints on the work request.
+        */
+        val constraints = Constraints.Builder().apply {
+            setRequiredNetworkType(NetworkType.CONNECTED)
+            setRequiresCharging(false)
+            setRequiresStorageNotLow(false)
+            setRequiresBatteryNotLow(true)                 // if the battery is not low
+        }.build()
+
+        val workManager= WorkManager.getInstance()
+        val renderNotification= PeriodicWorkRequest.Builder(
+            NotificationRequestWorker::class.java,
+            30, TimeUnit.MINUTES)
+            .setBackoffCriteria(BackoffPolicy.LINEAR, PeriodicWorkRequest.MIN_BACKOFF_MILLIS, TimeUnit.MILLISECONDS)
+            .setConstraints(constraints).build()
+        workManager.enqueueUniquePeriodicWork("BACKGROUND NOTIFICATIONS", ExistingPeriodicWorkPolicy.KEEP,renderNotification)
+
+        Timber.e("WORK ENQUEUED")
+        workManager.getWorkInfoByIdLiveData(renderNotification.id).observe(this, Observer {
+
+            if (it != null && it.state == WorkInfo.State.SUCCEEDED) {
+                Timber.e("SUCCESS PERF JOB"+ Gson().toJson(it))
+            }
+        })
+    }
+
 
     private fun initBottomNav() {
         bottomNavView.setOnNavigationItemSelectedListener {

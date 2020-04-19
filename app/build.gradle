@@ -168,4 +168,7 @@ dependencies {
     implementation 'org.adblockplus:adblock-android-webview:3.0'
     implementation 'org.adblockplus:adblock-android-settings:3.0'
 
+    //WORK-MANAGER
+    implementation "androidx.work:work-runtime-ktx:2.1.0"
+
 }

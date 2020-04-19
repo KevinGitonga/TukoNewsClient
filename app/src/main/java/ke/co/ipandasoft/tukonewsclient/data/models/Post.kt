@@ -1,6 +1,7 @@
 package ke.co.ipandasoft.tukonewsclient.data.models
 
 
+import android.app.Notification
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Ignore
@@ -71,5 +72,8 @@ data class Post(
     var views: Int?=0,
     @SerializedName("isLiked")
     @ColumnInfo(name = "isLiked")
-    var isLiked: Boolean?=false
+    var isLiked: Boolean?=false,
+    @SerializedName("isNotification")
+    @ColumnInfo(name = "isNotification")
+    var isNotification: Boolean?=false
 )

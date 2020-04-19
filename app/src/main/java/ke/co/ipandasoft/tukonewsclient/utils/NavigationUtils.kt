@@ -21,6 +21,7 @@ class NavigationUtils{
             navigationIntent.putExtra("newsTitle",newsTitle)
             activity.startActivity(navigationIntent)
         }
+
     }
 
 }

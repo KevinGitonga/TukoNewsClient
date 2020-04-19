@@ -12,6 +12,12 @@ interface NewsPostDao {
   @Query("UPDATE news_post_table SET isLiked = :boolean WHERE post_id = :newsPostId")
   fun newsLiked(boolean: Boolean,newsPostId: Int)
 
+  @Insert(onConflict = OnConflictStrategy.REPLACE)
+  fun insertNewsNotification(newsPost: Post)
+
+  @Query("UPDATE news_post_table SET isNotification = :boolean WHERE post_id = :newsPostId")
+  fun isNotification(boolean: Boolean,newsPostId: Int)
+
   @Query("SELECT * FROM news_post_table WHERE post_id = :id_")
   fun getNewsPost(id_: Int): Post
 

@@ -8,11 +8,15 @@ import com.daimajia.androidanimations.library.YoYo
 import android.animation.ValueAnimator
 import android.os.Handler
 import android.view.animation.AnimationUtils
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.google.gson.Gson
+import ke.co.ipandasoft.tukonewsclient.constants.Constants
 import ke.co.ipandasoft.tukonewsclient.data.models.NewsCategory
+import ke.co.ipandasoft.tukonewsclient.data.models.Post
 import ke.co.ipandasoft.tukonewsclient.data.remote.Response
 import ke.co.ipandasoft.tukonewsclient.ui.activity.main.HomeActivity
+import ke.co.ipandasoft.tukonewsclient.ui.activity.main.browser.BrowserActivity
 import ke.co.ipandasoft.tukonewsclient.utils.NavigationUtils
 import kotlinx.android.synthetic.main.splash_layout.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -26,12 +30,20 @@ class SplashActivity : BaseActivity() {
 
 
     private var isShowingRubberEffect: Boolean = false
+    private var post: Post?=null
 
     override fun layoutId(): Int {
         return R.layout.splash_layout
     }
 
     override fun initData() {
+        val postData=intent.getStringExtra(Constants.SPLASH_POST_DATA_INTENT)
+        if (postData.isNullOrEmpty()){
+            return
+        }
+        else{
+            post=Gson().fromJson(postData,Post::class.java)
+        }
     }
 
     override fun initView() {
@@ -110,7 +122,13 @@ class SplashActivity : BaseActivity() {
     private fun navigateToMain() {
        Handler().postDelayed({
             finish()
-            NavigationUtils.navigate(this@SplashActivity,HomeActivity::class.java)
+            if (post==null){
+                NavigationUtils.navigate(this@SplashActivity,HomeActivity::class.java)
+            }else{
+                NavigationUtils.navigateWithBundle(this,true, post!!.url!!,
+                    post!!.title!!,BrowserActivity::class.java)
+            }
+
         }, 2000)
     }
 

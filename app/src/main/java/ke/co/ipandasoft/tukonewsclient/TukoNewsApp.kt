@@ -1,17 +1,24 @@
 package ke.co.ipandasoft.tukonewsclient
 
 import android.content.Context
+import androidx.lifecycle.Observer
 import androidx.multidex.MultiDexApplication
+import androidx.work.Constraints
+import androidx.work.NetworkType
+import androidx.work.PeriodicWorkRequest
+import androidx.work.WorkManager
 import ke.co.ipandasoft.tukonewsclient.di.networkModule
 import ke.co.ipandasoft.tukonewsclient.di.persistenceModule
 import ke.co.ipandasoft.tukonewsclient.di.repositoryModule
 import ke.co.ipandasoft.tukonewsclient.di.viewModelModule
+import ke.co.ipandasoft.tukonewsclient.ui.activity.notifications.NotificationRequestWorker
 import org.adblockplus.libadblockplus.android.AdblockEngine
 import org.adblockplus.libadblockplus.android.SingleInstanceEngineProvider
 import org.adblockplus.libadblockplus.android.settings.AdblockHelper
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import timber.log.Timber
+import java.util.concurrent.TimeUnit
 import kotlin.properties.Delegates
 
 
@@ -31,8 +38,8 @@ class TukoNewsApp : MultiDexApplication(){
         initLogger()
         initAdBlocker()
         initKoinDi()
-
     }
+
 
     private fun initAdBlocker() {
 
@@ -50,7 +57,7 @@ class TukoNewsApp : MultiDexApplication(){
     }
 
 
-    open fun initKoinDi() {
+    private fun initKoinDi() {
         startKoin {
             androidContext(this@TukoNewsApp)
             modules(persistenceModule)

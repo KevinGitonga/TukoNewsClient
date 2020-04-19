@@ -2,6 +2,7 @@ package ke.co.ipandasoft.tukonewsclient.ui.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import ke.co.ipandasoft.tukonewsclient.ui.activity.main.HomeActivity
 
 abstract class BaseActivity : AppCompatActivity() {
 
@@ -12,7 +13,6 @@ abstract class BaseActivity : AppCompatActivity() {
         initData()
         initView()
         start()
-
     }
 
 
