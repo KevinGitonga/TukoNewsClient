@@ -5,12 +5,16 @@ import androidx.lifecycle.Observer
 import androidx.work.*
 import com.google.gson.Gson
 import ke.co.ipandasoft.tukonewsclient.R
+import ke.co.ipandasoft.tukonewsclient.constants.Constants
+import ke.co.ipandasoft.tukonewsclient.data.models.Post
 import ke.co.ipandasoft.tukonewsclient.ui.activity.main.bookmarks.BookMarksFragment
 import ke.co.ipandasoft.tukonewsclient.ui.activity.main.bookmarks.BookMarksListFragment
+import ke.co.ipandasoft.tukonewsclient.ui.activity.main.browser.BrowserActivity
 import ke.co.ipandasoft.tukonewsclient.ui.activity.main.homenews.HomeFragment
 import ke.co.ipandasoft.tukonewsclient.ui.activity.main.settings.SettingsFragment
 import ke.co.ipandasoft.tukonewsclient.ui.activity.notifications.NotificationRequestWorker
 import ke.co.ipandasoft.tukonewsclient.ui.base.BaseActivity
+import ke.co.ipandasoft.tukonewsclient.utils.NavigationUtils
 import kotlinx.android.synthetic.main.home_activity.*
 import org.jetbrains.anko.longToast
 import timber.log.Timber
@@ -21,6 +25,8 @@ class HomeActivity :BaseActivity(){
     private var homeFragment: HomeFragment? = null
     private var bookMarksFragment: BookMarksFragment? = null
     private var settingsFragment: SettingsFragment? = null
+
+    private var post: Post?=null
 
 
     override fun layoutId(): Int {
@@ -42,6 +48,17 @@ class HomeActivity :BaseActivity(){
         initBottomNav()
         switchFragment(0)
         setupWorker()
+        openNewsIntent()
+    }
+
+    private fun openNewsIntent() {
+        val postData=intent.getStringExtra(Constants.SPLASH_POST_DATA_INTENT)
+        if (!postData.isNullOrEmpty()){
+            post=Gson().fromJson(postData,Post::class.java)
+            NavigationUtils.navigateWithBundle(this,true, post!!.url!!, post!!.title!!,
+                BrowserActivity::class.java)
+        }
+
     }
 
     private fun setupWorker() {

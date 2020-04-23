@@ -56,6 +56,7 @@ class HomeFragment : BaseFragment() {
         viewPager.adapter = BaseFragmentAdapter(childFragmentManager, fragments, tabList)
         tabLayout.setupWithViewPager(viewPager)
         viewPager.offscreenPageLimit=4
+        viewPager.currentItem = 6
     }
 }
 

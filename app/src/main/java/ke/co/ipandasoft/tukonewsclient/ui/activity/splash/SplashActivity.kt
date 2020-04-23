@@ -125,8 +125,7 @@ class SplashActivity : BaseActivity() {
             if (post==null){
                 NavigationUtils.navigate(this@SplashActivity,HomeActivity::class.java)
             }else{
-                NavigationUtils.navigateWithBundle(this,true, post!!.url!!,
-                    post!!.title!!,BrowserActivity::class.java)
+                NavigationUtils.navigateHome(this, post!!, HomeActivity::class.java)
             }
 
         }, 2000)

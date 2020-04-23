@@ -97,6 +97,7 @@ class NotificationRequestWorker(context: Context, workerParams: WorkerParameters
             setStyle(notificationStyle)
             setContentIntent(resultPendingIntent)
             setSmallIcon(R.drawable.ic_collection)
+            setAutoCancel(true)
             priority = NotificationCompat.PRIORITY_DEFAULT
         }.build()
 
