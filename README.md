@@ -1,4 +1,6 @@
 # TukoNewsClient
+# Build Status [![Travis](https://travis-ci.com/KevinGitonga/TukoNewsClient.svg?branch=master)](https://travis-ci.com/github/KevinGitonga/TukoNewsClient)
+
 A simple and sleek Android client consuming the Tuko News Api !! https://www.tuko.co.ke/
 
 ![Tuko Client Logo](https://i.imgur.com/aScFlLA.png)
@@ -36,7 +38,7 @@ The major third-party open source frameworks are:
  
  ## Update log
 
-**[Click to view the latest record](https://github.com/KevinGitonga/TukoNewsClient/tree/master/app/release)**
+**[Click to view the latest release](https://github.com/KevinGitonga/TukoNewsClient/tree/master/app/release)**
 
 
 **v2.4.1**
@@ -54,6 +56,22 @@ The major third-party open source frameworks are:
 
 ## Statement
 **Project API are from Tuko.co.ke, purely for learning purposes, shall not be used for commercial purposes/ use at your own risk**
+
+# Changelog
+
+### - 2020-04-19
+- Fix issue on Back Navigation.
+
+### - 2020-04-19
+- Implement Notifications through WorkManager.
+
+### - 2020-03-29
+- Update .apks
+- Remove unnecessary toasts.
+- Implement Adblocker Engine.
+
+## [1.0.0] - 2020-03-25
+- Initial Tuko News App Client Release.
 
 ## LICENSE
 
