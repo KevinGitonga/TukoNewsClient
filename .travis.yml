@@ -32,4 +32,4 @@ android:
       - sys-img-armeabi-v7a-android-17
 
 script:
-  - "./gradlew build connectedCheck "
+  - "./gradlew build connectedCheck"
