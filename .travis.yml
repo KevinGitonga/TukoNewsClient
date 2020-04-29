@@ -1,0 +1,23 @@
+language: android
+sudo: required
+jdk: oraclejdk8
+dist: trusty
+
+android:
+  components:
+    - tools
+    - platform-tools
+    - tools
+    - extra-android-m2repository
+    - build-tools-29.0.2
+    - android-29
+
+ script:
+  - ./gradlew build connectedCheck
+
+  licenses:
+    - android-sdk-preview-license-.+
+    - android-sdk-license-.+
+    - google-gdk-license-.+
+
+  after_failure: "cat $TRAVIS_BUILD_DIR/app/build/outputs/lint-results-debug.xml"
